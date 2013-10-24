@@ -19,7 +19,7 @@ public class App {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Окей. До свидания!");
+        System.out.println("Окей. Пока!");
     }
 
     private static void talk(ReplyGenerator replyGenerator) throws IOException {
