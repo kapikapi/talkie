@@ -2,6 +2,7 @@ package webapp.servlets;
 
 
 import exigen.students.App;
+import exigen.students.MyDB;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,9 @@ import java.io.PrintWriter;
  * Time: 15:26
  */
 public class MyServlet extends HttpServlet {
+
+    public static final String QUESTION = "question";
+
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.setContentType("text/html");
         res.setCharacterEncoding("UTF-8");
@@ -26,7 +30,7 @@ public class MyServlet extends HttpServlet {
         writer.println("<head><title>My first page</title></head>");
         writer.println("<body>Привет!" +
                 "<FORM method=\"post\"> " +
-                "Могу ли я <INPUT NAME=\"question\"> <BR> " +
+                "Могу ли я <INPUT NAME=\""+QUESTION+"\"> <BR> " +
                 "<INPUT TYPE=SUBMIT>\n" +
                 "</FORM> " +
                 "</body>");
@@ -40,7 +44,9 @@ public class MyServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
 
         req.setCharacterEncoding("UTF-8");
-        String a = req.getParameter("question");
+
+        String a = req.getParameter(QUESTION);
+        MyDB.addQuestion(a);
         PrintWriter writer = resp.getWriter();
 
         writer.println("<html>");
