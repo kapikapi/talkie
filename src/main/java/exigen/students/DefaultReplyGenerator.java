@@ -12,6 +12,7 @@ import java.util.Random;
 public class DefaultReplyGenerator implements ReplyGenerator {
     
     private List<String> answers = new ArrayList<String>();
+
     
     public DefaultReplyGenerator() {
         answers.add("Конечно! Что за вопрос!");
